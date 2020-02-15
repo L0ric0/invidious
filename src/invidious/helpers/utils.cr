@@ -288,7 +288,9 @@ def make_host_url(config, kemal_config)
 
   host = config.domain.not_nil!.lchop(".")
 
-  return "#{scheme}#{host}#{port}"
+  basepath = "/#{config.basepath}"
+
+  return "#{scheme}#{host}#{port}#{basepath}"
 end
 
 def get_referer(env, fallback = "/", unroll = true)
